@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "priority": 1,
+        "action": {
+            "type": "modifyHeaders",
+            "requestHeaders": [
+                { "header": "sec-fetch-dest", "operation": "set", "value": "document" }
+            ]
+        },
+        "condition": {"urlFilter": "bard.google.com", "resourceTypes": ["sub_frame"] }
+    }
+]

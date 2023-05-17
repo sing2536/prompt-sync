@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "PromptSync",
+    "version": "1.0",
+    "background": {
+        "service_worker": "serviceWorker.js"
+    },
+    "action": {},
+    "permissions": [
+        "tabs",
+        "declarativeNetRequestWithHostAccess"
+    ],
+    "host_permissions": [
+        "https://chat.openai.com/*",
+        "https://bard.google.com/*"
+    ],
+    "content_scripts": [{
+        "matches": ["https://chat.openai.com/*", "https://bard.google.com/*"],
+        "all_frames": true,
+        "js": ["cs.js"]
+    }],
+    "declarative_net_request": {
+        "rule_resources": [{
+          "id": "ruleset_1",
+          "enabled": true,
+          "path": "netRequestRules.json"
+        }]
+    }
+}

@@ -1,0 +1,89 @@
+button, .button {
+    // outline: none;
+    padding: var(--gap-tiny);
+    border: unset;
+    font-weight: 600;
+    border-radius: var(--radius-normal);
+    color: var(--color-text);
+    background: transparent;
+    text-transform: capitalize;
+    text-decoration: none !important;
+  
+    &.dense {
+      padding: var(--gap-xtiny);
+    }
+  
+    &.raised {
+      color: var(--color-text);
+      background: var(--color-shade);
+  
+      &:is(.primary) {
+        background: var(--color-primary);
+      }
+  
+      &:hover {
+        background: var(--color-shade2);
+      }
+    }
+  
+    &:hover {
+      cursor: pointer;
+      background: var(--color-shade);
+    }
+  
+    &.primary {
+      color: white;
+  
+      &:not(.raised) {
+        color: var(--color-primary);
+  
+        &:hover {
+          color: white;
+        }
+      }
+  
+      &:hover:is(.raised) {
+        background: var(--color-primary2);
+      }
+  
+      &:hover {
+        background: var(--color-primary);
+      }
+    }
+
+    &.red {
+      color: white;
+  
+      &:not(.raised) {
+        color: var(--color-red);
+  
+        &:hover {
+          color: white;
+        }
+      }
+  
+      &:hover:is(.raised) {
+        background: var(--color-red);
+      }
+  
+      &:hover {
+        background: var(--color-red);
+      }
+    }
+
+    &.link {
+      padding-left: 0;
+      padding-right: 0;
+
+      &:hover {
+        background-color: unset;
+        color: var(--color-text) !important;
+      }
+    }
+  
+    &.disabled, &.disabled:hover {
+      color: var(--color-text2);
+      background: var(--color-shade) !important;
+      pointer-events: none;
+    }
+  }
