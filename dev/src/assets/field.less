@@ -1,4 +1,5 @@
 input, textarea, .radio-container, select {
+    font-family: inherit;
     padding: var(--gap-tiny);
     color: var(--color-text);
     background-color: var(--color-shade);
@@ -14,5 +15,9 @@ input, textarea, .radio-container, select {
     
     &:focus {
         border: solid 2px var(--color-primary);
+    }
+
+    &::placeholder {
+        color: var(--color-shade2);
     }
 }

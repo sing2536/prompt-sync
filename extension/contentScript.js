@@ -1,33 +1,36 @@
-chrome.runtime.onMessage.addListener((msg) => {
-    switch (msg?.action) {
-        case 'query':
-            query(msg.data)
-            break;
-
-        case 'reset':
-            reset()
-    
-    }
-});
+const isBard = (() => location.host == 'bard.google.com')()
+const isChatGPT = (() => location.host == 'chat.openai.com')()
 
 function query(data) {
-    const chatGPT = document.querySelector('[id="prompt-textarea"]')
-    const bard = document.querySelector('[aria-label="Input for prompt text"]')
-
-    if (chatGPT) {
-        setReactValue(chatGPT, data)
+    if (isChatGPT) {
+        setReactValue(document.querySelector('[id="prompt-textarea"]'), data)
         document.querySelector('[id="prompt-textarea"]').nextElementSibling.click()
     }
-    if (bard) {
+
+    if (isBard) {
+        const bard = document.querySelector('[aria-label="Input for prompt text"]')
         bard.value = data
         bard.dispatchEvent(new Event('input'))
         document.querySelector('[mattooltip="Submit"]').click()
     }
 }
 
-function reset() {
+window.addEventListener("load", async ()=> {
+    if (isBard) {
+        while (document.querySelector('[aria-label="Input for prompt text"]') === null) {
+            await new Promise(resolve => requestAnimationFrame(resolve));
+        }
+        chrome.runtime.sendMessage('', {action: 'focusPrompt'})
+    }
+}, false)
 
-}
+chrome.runtime.onMessage.addListener((msg) => {
+    switch (msg?.action) {
+        case 'query':
+            query(msg.data)
+            break;
+    }
+});
 
 function setReactValue(element, value) {
     let lastValue = element.value;

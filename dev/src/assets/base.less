@@ -1,0 +1,58 @@
+@import "field.less";
+@import "button.less";
+
+:root {
+  --color-primary: #2cffa7;
+
+  --color-background: #1b1b1b;
+  --color-background2: #f8f8f8;
+  --color-text: rgb(225, 225, 225);
+  --color-text2: rgb(124, 124, 124);
+  --color-shade: #232323;
+  --color-shade2: #636363;
+
+  --mask-background: rgba(0, 0, 0, 0.5);
+
+  --gap-xlarge: 52px;
+  --gap-large: 32px;
+  --gap-medium: 24px;
+  --gap-small: 16px;
+  --gap-tiny: 10px;
+  --gap-xtiny: 6px;
+
+  --radius-normal: 12px;
+
+  --nav-height:100px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: 500;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  &.blank {
+    color: none;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+}
