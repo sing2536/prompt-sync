@@ -1,18 +1,24 @@
 <script setup>
 import { Icon } from '@iconify/vue';
 import { usePromptStore } from '../stores/prompt';
+import { useShareStore } from '../stores/share';
 
 const prompt = usePromptStore()
+const shareStore = useShareStore()
 
 function github() {
   window.open('https://github.com/sing2536/prompt-sync', '_blank')
 }
 
 function share() {
-  navigator.share({
-    title: 'PromptSync',
-    url: 'https://www.google.com'
-  })
+  try {
+    navigator.share({
+      title: 'PromptSync',
+      url: shareStore.link
+    })
+  } catch {
+    shareStore.open()
+  }
 }
 
 if (chrome.runtime) {
@@ -99,7 +105,7 @@ if (chrome.runtime) {
     &:hover {
       cursor: pointer;
       color: var(--color-shade);
-      background: var(--color-background2);
+      background: var(--color-text);
     }
   }
 }
