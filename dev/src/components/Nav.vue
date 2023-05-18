@@ -35,10 +35,10 @@ if (chrome.runtime) {
       <textarea v-model="prompt.query" @keydown.ctrl.enter="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you're logged in to all platforms below before prompting.&#10CTRL+Enter to send prompt, CTRL+Space to reset chats.&#10Happy prompting!"></textarea>
   
       <div class="prompt-actions">
-        <div class="action" @click="prompt.ask()">
+        <div class="action" @click="prompt.ask()" v-tooltip="'Send prompt'">
           <Icon icon="fluent:send-28-filled" />
         </div>
-        <div class="action" @click="prompt.reset()">
+        <div class="action" @click="prompt.reset()" v-tooltip="'Reset chats'">
           <Icon icon="material-symbols:device-reset-rounded" />
         </div>
       </div>
@@ -46,10 +46,10 @@ if (chrome.runtime) {
 
     <div class="end-container">
       <div class="prompt-actions">
-        <div class="action" @click="share()">
+        <div class="action" @click="share()" v-tooltip="'Share app'">
           <Icon icon="ic:baseline-share" />
         </div>
-        <div class="action" @click="github()">
+        <div class="action" @click="github()" v-tooltip="'Github'">
           <Icon icon="mdi:github" />
         </div>
       </div>
@@ -114,5 +114,30 @@ if (chrome.runtime) {
 textarea {
   width: 600px;
   resize: none;
+}
+
+@media (max-width: 1200px) {
+  .logo {
+    display: none;
+  }
+}
+
+@media (max-width: 950px) {
+  textarea {
+    width: 100%;
+  }
+
+  .end-container {
+    flex: 0;
+  }
+}
+
+@media (max-width: 790px) {
+  .nav-container{
+    padding: 0 var(--gap-small);
+  }
+  .end-container {
+    display: none;
+  }
 }
 </style>
