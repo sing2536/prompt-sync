@@ -11,14 +11,16 @@ function github() {
 }
 
 function share() {
-  try {
-    navigator.share({
-      title: 'PromptSync',
-      url: shareStore.link
-    })
-  } catch {
-    shareStore.open()
-  }
+  shareStore.open()
+
+  // try {
+  //   navigator.share({
+  //     title: 'PromptSync',
+  //     url: shareStore.link
+  //   })
+  // } catch {
+  //   shareStore.open()
+  // }
 }
 
 if (chrome.runtime) {

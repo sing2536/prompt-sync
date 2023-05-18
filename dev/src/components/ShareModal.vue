@@ -15,6 +15,10 @@ function copy() {
     document.execCommand('copy')
 }
 
+function openLink() {
+    window.open(share.link, '_blank')
+}
+
 watch(() => share.active, (val) => {
     if (val) setTimeout(() => copy(), 500);
 })
@@ -27,12 +31,13 @@ watch(() => share.active, (val) => {
             <p>Link should already be copied to your clipboard.</p>
             <input id="shareLink" type="text" :value="share.link">
             <button class="raised primary fill" @click="copy()">Copy</button>
+            <button class="primary fill" @click="openLink()">Open</button>
         </div>
     </Modal>
 </template>
 
 <style lang="less" scoped>
-input {
+input, button {
     margin-bottom: var(--gap-tiny);
 }
 </style>
