@@ -13,6 +13,7 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: '../extension/app'
+    outDir: '../extension/app',
+    emptyOutDir: true,
   }
 })
