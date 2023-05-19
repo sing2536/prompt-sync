@@ -99,7 +99,7 @@ if (chrome.runtime) {
 
 .center-container {
   display: flex;
-  gap: var(--gap-medium);
+  gap: var(--gap-small);
   flex: 1;
 }
 
@@ -113,13 +113,13 @@ if (chrome.runtime) {
   display: flex;
   align-items: center;
   gap: var(--gap-small);
-  font-size: 2.2em;
+  font-size: 2em;
 
   .action {
     display: flex;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     align-items: center;
     justify-content: center;
 
@@ -134,12 +134,13 @@ if (chrome.runtime) {
 .logo {
   flex: 1;
   font-size: 2em;
-  font-weight: 900;
+  font-weight: 800;
   color: var(--color-text);
 }
 
 textarea {
   resize: none;
+  padding: var(--gap-xtiny) var(--gap-tiny);
 }
 
 @media (max-width: 1200px) {
