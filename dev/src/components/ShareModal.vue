@@ -3,6 +3,7 @@ import Modal from './Modal.vue';
 import {useShareStore} from '../stores/share.js';
 import { onActivated } from 'vue';
 import { watch } from 'vue';
+import { nextTick } from 'vue';
 
 const share = useShareStore()
 
@@ -19,8 +20,8 @@ function openLink() {
     window.open(share.link, '_blank')
 }
 
-watch(() => share.active, (val) => {
-    if (val) setTimeout(() => copy(), 500);
+watch(() => share.active, async (val) => {
+    if (val) await nextTick(), copy();
 })
 </script>
 

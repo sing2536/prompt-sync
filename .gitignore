@@ -14,6 +14,7 @@ dist-ssr
 coverage
 *.local
 extension.zip
+extension/app/
 
 /cypress/videos/
 /cypress/screenshots/
