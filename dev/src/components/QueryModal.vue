@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import Modal from './Modal.vue';
 import { usePromptStore } from '../stores/prompt';
 import { watch } from 'vue';
+import { nextTick } from 'vue';
 
 const prompt = usePromptStore()
 const active = ref(false)
@@ -16,8 +17,16 @@ function send() {
     active.value = false
 }
 
-watch(active, (v)=> {
- if (v) setTimeout(()=> document.querySelector('#enlargedQuery').focus(), 500)
+watch(active, async (v)=> {
+    if (v) {
+        await nextTick()
+        document.querySelector('#enlargedQuery').focus()
+    } else {
+        //nextTick doesn't work here
+        setTimeout(() => {
+            document.querySelector('#mainQuery').focus()
+        }, 300);
+    }
 })
 
 defineExpose({ open })

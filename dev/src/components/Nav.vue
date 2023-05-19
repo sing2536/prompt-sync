@@ -35,7 +35,7 @@ if (chrome.runtime) {
 
     <div class="center-container">
       <div class="prompt-container">
-        <textarea v-model="prompt.query" @keydown.ctrl.enter="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you're logged in to all platforms below before prompting.&#10CTRL+Enter to send prompt, CTRL+Space to reset chats.&#10Happy prompting!"></textarea>
+        <textarea v-model="prompt.query" id="mainQuery" @keydown.ctrl.enter="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you're logged in to all platforms below before prompting.&#10CTRL+Enter to send prompt, CTRL+Space to reset chats.&#10Happy prompting!"></textarea>
         <div class="enlarge-button" @click="queryModal.open()" v-tooltip="'Enlarge'">
           <Icon icon="mdi:resize" />
         </div>
