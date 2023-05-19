@@ -2,9 +2,12 @@
 import { Icon } from '@iconify/vue';
 import { usePromptStore } from '../stores/prompt';
 import { useShareStore } from '../stores/share';
+import QueryModal from './QueryModal.vue';
+import { ref } from 'vue';
 
 const prompt = usePromptStore()
 const shareStore = useShareStore()
+const queryModal = ref(null);
 
 function github() {
   window.open('https://github.com/sing2536/prompt-sync', '_blank')
@@ -12,15 +15,6 @@ function github() {
 
 function share() {
   shareStore.open()
-
-  // try {
-  //   navigator.share({
-  //     title: 'PromptSync',
-  //     url: shareStore.link
-  //   })
-  // } catch {
-  //   shareStore.open()
-  // }
 }
 
 if (chrome.runtime) {
@@ -40,10 +34,15 @@ if (chrome.runtime) {
     <div class="logo">PromptSync</div>
 
     <div class="center-container">
-      <textarea v-model="prompt.query" @keydown.ctrl.enter="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you're logged in to all platforms below before prompting.&#10CTRL+Enter to send prompt, CTRL+Space to reset chats.&#10Happy prompting!"></textarea>
+      <div class="prompt-container">
+        <textarea v-model="prompt.query" @keydown.ctrl.enter="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you're logged in to all platforms below before prompting.&#10CTRL+Enter to send prompt, CTRL+Space to reset chats.&#10Happy prompting!"></textarea>
+        <div class="enlarge-button" @click="queryModal.open()" v-tooltip="'Enlarge'">
+          <Icon icon="mdi:resize" />
+        </div>
+      </div>
   
       <div class="prompt-actions">
-        <div class="action" @click="prompt.ask()" v-tooltip="'Send prompt'">
+        <div class="action" @click="prompt.ask()" v-tooltip="'Send'">
           <Icon icon="fluent:send-28-filled" />
         </div>
         <div class="action" @click="prompt.reset()" v-tooltip="'Reset chats'">
@@ -62,10 +61,30 @@ if (chrome.runtime) {
         </div>
       </div>
     </div>
+
+    <QueryModal :active="expandQuery" ref="queryModal"/>
   </div>
 </template>
 
 <style lang="less" scoped>
+.prompt-container {
+  position: relative;
+  display: flex;
+  width: 600px;
+
+  .enlarge-button {
+    color: var(--color-shade2);
+    font-size: large;
+    position: absolute;
+    right: 8px;
+    bottom: 0;
+
+    &:hover {
+      cursor: pointer;
+      color: var(--color-primary);
+    }
+  }
+}
 .nav-container {
   display: flex;
   height: var(--nav-height);
@@ -120,7 +139,6 @@ if (chrome.runtime) {
 }
 
 textarea {
-  width: 600px;
   resize: none;
 }
 
@@ -131,7 +149,7 @@ textarea {
 }
 
 @media (max-width: 950px) {
-  textarea {
+  .prompt-container {
     width: 100%;
   }
 
