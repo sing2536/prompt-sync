@@ -6,16 +6,13 @@ A Chrome extension that allows you to ask ChatGPT and Bard with one single promp
 ## Project setup
 
 ```sh
-
-npm  install
-
+npm install
 ```
 
 ### Compile and Hot-Reload for development, and also builds for production at the same time
 
 ```sh
-npm  run  dev
-
+npm run dev
 ```
 
 ### You can now load the extension folder in to your Chrome to get the extension up and running and start developing.
@@ -23,8 +20,7 @@ npm  run  dev
 ## Deployment
 
 ```sh
-npm  run  zip
-
+npm run zip
 ```
 
 This will zip the extension folder in to dist folder, ready to be uploaded to Chrome web store for deployment.
