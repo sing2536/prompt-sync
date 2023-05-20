@@ -17,7 +17,7 @@ npm install
 npm run dev
 ```
 
-#### You can now load the extension folder in to your Chrome to get the extension up and running and start developing
+#### You can now load the extension folder in to your Chrome to get the extension up and running
 
 ## Deployment
 
