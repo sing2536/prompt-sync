@@ -1,29 +1,30 @@
-# prompt-sync
 
-This template should help get you started developing with Vue 3 in Vite.
+# Prompt Sync
 
-## Recommended IDE Setup
+A Chrome extension that allows you to ask ChatGPT and Bard with one single prompt!
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Project setup
 
 ```sh
-npm install
+
+npm  install
+
 ```
 
-### Compile and Hot-Reload for Development
+### Compile and Hot-Reload for development, and also builds for production at the same time
 
 ```sh
-npm run dev
+npm  run  dev
+
 ```
 
-### Compile and Minify for Production
+### You can now load the extension folder in to your Chrome to get the extension up and running and start developing.
+
+## Deployment
 
 ```sh
-npm run build
+npm  run  zip
+
 ```
+
+This will zip the extension folder in to dist folder, ready to be uploaded to Chrome web store for deployment.
