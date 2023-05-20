@@ -15,7 +15,7 @@ coverage
 *.local
 extension.zip
 extension/app/
-dist/
+dist/*
 
 /cypress/videos/
 /cypress/screenshots/
