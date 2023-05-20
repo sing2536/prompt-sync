@@ -14,7 +14,7 @@ coverage
 *.local
 extension.zip
 extension/app/
-dist/*
+dist/prompt-sync_*.zip
 
 /cypress/videos/
 /cypress/screenshots/
