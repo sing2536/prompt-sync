@@ -31,7 +31,7 @@ watch(() => share.active, async (val) => {
             <h2>Thanks for sharing!</h2>
             <p>Link should already be copied to your clipboard.</p>
             <input id="shareLink" type="text" :value="share.link">
-            <button class="raised primary fill" @click="copy()">Copy</button>
+            <button class="raised primary fill" @click="copy()" v-tooltip="{click: 'Copied!'}">Copy</button>
             <button class="primary fill" @click="openLink()">Open</button>
         </div>
     </Modal>
