@@ -38,7 +38,7 @@ watch(() => share.active, async (val) => {
 </template>
 
 <style lang="less" scoped>
-input, button {
+input, button:not(:last-child) {
     margin-bottom: var(--gap-tiny);
 }
 </style>
