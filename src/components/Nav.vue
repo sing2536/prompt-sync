@@ -118,8 +118,8 @@ if (chrome.runtime) {
   .action {
     display: flex;
     border-radius: 50%;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     align-items: center;
     justify-content: center;
 
