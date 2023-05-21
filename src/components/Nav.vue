@@ -73,7 +73,7 @@ if (chrome.runtime) {
   width: 600px;
 
   .enlarge-button {
-    color: var(--color-shade2);
+    color: var(--color-text2);
     font-size: large;
     position: absolute;
     right: 8px;
@@ -113,7 +113,7 @@ if (chrome.runtime) {
   display: flex;
   align-items: center;
   gap: var(--gap-small);
-  font-size: 2em;
+  font-size: 1.8em;
 
   .action {
     display: flex;
@@ -133,12 +133,14 @@ if (chrome.runtime) {
 
 .logo {
   flex: 1;
-  font-size: 2em;
+  font-size: 1.6em;
   font-weight: 800;
   color: var(--color-text);
 }
 
 textarea {
+  line-height: 18px;
+  font-size: small;
   resize: none;
   padding: var(--gap-xtiny) var(--gap-tiny);
 }

@@ -51,6 +51,6 @@ defineExpose({ open })
 textarea {
     resize: vertical;
     height: 70vh;
-    margin-bottom: var(--gap-small);
+    margin-bottom: var(--gap-xtiny);
 }
 </style>

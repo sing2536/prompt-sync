@@ -3,21 +3,21 @@ input, textarea, .radio-container, select {
     padding: var(--gap-tiny);
     color: var(--color-text);
     background-color: var(--color-shade);
-    font-size: small;
+    font-size: inherit;
     border: none;
     border-radius: var(--radius-normal);
     outline-color: var(--color-primary);
-    border: solid 2px transparent;
+    border: solid 1px var(--color-shade2);
     font-weight: 500;
     width: 100%;
     outline: none;
     line-height: inherit;
     
     &:focus {
-        border: solid 2px var(--color-primary);
+        border-color: var(--color-primary);
     }
 
     &::placeholder {
-        color: var(--color-shade2);
+        color: var(--color-text2);
     }
 }
