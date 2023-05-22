@@ -17,15 +17,13 @@ function share() {
   shareStore.open()
 }
 
-if (chrome.runtime) {
-  chrome.runtime.onMessage.addListener((msg) => {
-    switch (msg?.action) {
-      case 'focusPrompt':
-        setTimeout(() => document.querySelector('textarea').focus(), 500);
-        break;
-    }
-  })
-}
+chrome.runtime?.onMessage.addListener((msg) => {
+  switch (msg?.action) {
+    case 'focusPrompt':
+      setTimeout(() => document.querySelector('textarea').focus(), 500);
+      break;
+  }
+})
 </script>
 
 <template>
@@ -143,6 +141,7 @@ textarea {
   font-size: small;
   resize: none;
   padding: var(--gap-xtiny) var(--gap-tiny);
+  caret-color: var(--color-primary);
 }
 
 @media (max-width: 1200px) {
