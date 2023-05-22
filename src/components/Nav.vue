@@ -135,7 +135,6 @@ textarea {
   font-size: small;
   resize: none;
   padding: var(--gap-xtiny) var(--gap-tiny);
-  caret-color: var(--color-primary);
 }
 
 @media (max-width: 1200px) {
