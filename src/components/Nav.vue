@@ -9,10 +9,6 @@ const prompt = usePromptStore()
 const shareStore = useShareStore()
 const queryModal = ref(null);
 
-function github() {
-  window.open('https://github.com/sing2536/prompt-sync', '_blank')
-}
-
 function share() {
   shareStore.open()
 }
@@ -54,9 +50,9 @@ chrome.runtime?.onMessage.addListener((msg) => {
         <div class="action" @click="share()" v-tooltip="'Share app'">
           <Icon icon="ic:baseline-share" />
         </div>
-        <div class="action" @click="github()" v-tooltip="'Github'">
+        <a class="action" href="https://github.com/sing2536/prompt-sync" target="_blank" v-tooltip="'Github'">
           <Icon icon="mdi:github" />
-        </div>
+        </a>
       </div>
     </div>
 
