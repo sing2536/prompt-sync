@@ -15,5 +15,8 @@ export default defineConfig({
   build: {
     outDir: './extension/app',
     emptyOutDir: true,
+  },
+  server: {
+    open: true,
   }
 })
