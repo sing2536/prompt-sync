@@ -9,10 +9,6 @@ const prompt = usePromptStore()
 const shareStore = useShareStore()
 const queryModal = ref(null);
 
-function share() {
-  shareStore.open()
-}
-
 chrome.runtime?.onMessage.addListener((msg) => {
   switch (msg?.action) {
     case 'focusPrompt':
@@ -28,6 +24,7 @@ chrome.runtime?.onMessage.addListener((msg) => {
     <div class="logo">PromptSync</div>
 
     <div class="center-container">
+
       <div class="prompt-container">
         <textarea v-model="prompt.query" id="mainQuery" @keydown.ctrl.enter="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you're logged in to all platforms below before prompting.&#10CTRL+Enter to send prompt, CTRL+Space to reset chats.&#10Happy prompting!"></textarea>
         <div class="enlarge-button" @click="queryModal.open()" v-tooltip="'Enlarge'">
@@ -47,13 +44,14 @@ chrome.runtime?.onMessage.addListener((msg) => {
 
     <div class="end-container">
       <div class="prompt-actions">
-        <div class="action" @click="share()" v-tooltip="'Share app'">
+        <div class="action" @click="shareStore.open()" v-tooltip="'Share app'">
           <Icon icon="ic:baseline-share" />
         </div>
         <a class="action" href="https://github.com/sing2536/prompt-sync" target="_blank" v-tooltip="'Github'">
           <Icon icon="mdi:github" />
         </a>
       </div>
+      
     </div>
 
     <QueryModal :active="expandQuery" ref="queryModal"/>
