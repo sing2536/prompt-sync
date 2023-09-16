@@ -26,7 +26,7 @@ chrome.runtime?.onMessage.addListener((msg) => {
     <div class="center-container">
 
       <div class="prompt-container">
-        <textarea v-model="prompt.query" id="mainQuery" @keydown.ctrl.enter="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you're logged in to all platforms below before prompting.&#10CTRL+Enter to send prompt, CTRL+Space to reset chats.&#10Happy prompting!"></textarea>
+        <textarea v-model="prompt.query" id="mainQuery" @keypress.enter.exact="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you're logged in to all platforms below before prompting.&#10CTRL+Space to reset chats.&#10Happy prompting!"></textarea>
         <div class="enlarge-button" @click="queryModal.open()" v-tooltip="'Enlarge'">
           <Icon icon="mdi:resize" />
         </div>
@@ -68,7 +68,7 @@ chrome.runtime?.onMessage.addListener((msg) => {
     color: var(--color-text2);
     font-size: large;
     position: absolute;
-    right: 8px;
+    right: 12px;
     bottom: 0;
 
     &:hover {
@@ -135,6 +135,7 @@ textarea {
   font-size: small;
   resize: none;
   padding: var(--gap-xtiny) var(--gap-tiny);
+  padding-right: var(--gap-medium);
 }
 
 @media (max-width: 1200px) {
