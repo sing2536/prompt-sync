@@ -28,7 +28,7 @@ chrome.runtime?.onMessage.addListener((msg) => {
       <div class="prompt-container">
         <textarea v-model="prompt.query" id="mainQuery" @keypress.enter.exact="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you're logged in to all platforms below before prompting.&#10CTRL+Space to reset chats.&#10Happy prompting!"></textarea>
         <div class="enlarge-button" @click="queryModal.open()" v-tooltip="'Enlarge'">
-          <Icon icon="mdi:resize" />
+          <Icon icon="akar-icons:enlarge" />
         </div>
       </div>
   
@@ -69,7 +69,7 @@ chrome.runtime?.onMessage.addListener((msg) => {
     font-size: large;
     position: absolute;
     right: 12px;
-    bottom: 0;
+    bottom: 2px;
 
     &:hover {
       cursor: pointer;
@@ -135,7 +135,7 @@ textarea {
   font-size: small;
   resize: none;
   padding: var(--gap-xtiny) var(--gap-tiny);
-  padding-right: var(--gap-medium);
+  padding-right: 30px;
 }
 
 @media (max-width: 1200px) {
