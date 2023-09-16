@@ -26,7 +26,7 @@ chrome.runtime?.onMessage.addListener((msg) => {
     <div class="center-container">
 
       <div class="prompt-container">
-        <textarea v-model="prompt.query" id="mainQuery" @keypress.enter.exact="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you're logged in to all platforms below before prompting.&#10CTRL+Space to reset chats.&#10Happy prompting!"></textarea>
+        <textarea v-model="prompt.query" id="mainQuery" @keypress.enter.exact="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you're logged in to all platforms first before using this extension.&#10CTRL+Space to reset chats.&#10Happy prompting!"></textarea>
         <div class="enlarge-button" @click="queryModal.open()" v-tooltip="'Enlarge'">
           <Icon icon="akar-icons:enlarge" />
         </div>
