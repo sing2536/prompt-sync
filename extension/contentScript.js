@@ -11,11 +11,13 @@ function query(data) {
 
     if (isBard) {
         const bard = document.querySelector(
-            '[aria-label="Input for prompt text"]'
+            '[aria-label="Input for prompt text"] p'
         )
-        bard.value = data
-        bard.dispatchEvent(new Event("input"))
-        document.querySelector('[mattooltip="Submit"]').click()
+        bard.innerText = data
+        setTimeout(
+            () => document.querySelector('[mattooltip="Submit"]').click(),
+            500
+        )
     }
 }
 
