@@ -3,7 +3,8 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "dev": "vite && vite build --watch",
+        "dev": "vite",
+        "build": "vite build --watch",
         "zip": "vite build && npm-build-zip --source=extension/ --destination=dist/"
     },
     "dependencies": {
