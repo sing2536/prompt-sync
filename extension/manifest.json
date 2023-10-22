@@ -16,10 +16,11 @@
         {
             "matches": [
                 "https://chat.openai.com/*",
-                "https://bard.google.com/*"
+                "https://bard.google.com/*",
+                "https://www.bing.com/*"
             ],
             "all_frames": true,
-            "js": ["contentScript.js"]
+            "js": ["contentScript.js", "src/querySelectorShadowDom.js"]
         }
     ],
     "icons": {

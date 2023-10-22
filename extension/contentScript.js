@@ -1,5 +1,6 @@
 const isBard = (() => location.host == "bard.google.com")()
 const isChatGPT = (() => location.host == "chat.openai.com")()
+const isBing = (() => location.host == "www.bing.com")()
 
 function query(data) {
     if (isChatGPT) {
@@ -18,6 +19,18 @@ function query(data) {
             () => document.querySelector('[mattooltip="Submit"]').click(),
             500
         )
+    }
+
+    if (isBing) {
+        const input = querySelectorShadowDom.querySelectorDeep("#searchbox")
+        const send = querySelectorShadowDom.querySelectorDeep(
+            'button[description="Submit"]'
+        )
+        input.value = data
+        input.dispatchEvent(new Event("change"))
+        setTimeout(() => {
+            send.click()
+        }, 500)
     }
 }
 
