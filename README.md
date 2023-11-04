@@ -1,7 +1,6 @@
-
 # PromptSync
 
-A Chrome extension that allows you to ask ChatGPT and Bard AI with one single prompt!
+A Chrome extension that allows you to ask ChatGPT, Bing Chat, and Bard AI with one single prompt!
 
 Find it on [Chrome web store.](https://chrome.google.com/webstore/detail/promptsync/inidphchdjjbmjlacjlkjlopllbidljk?hl)
 
