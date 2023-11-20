@@ -1,25 +1,22 @@
-<script setup></script>
+<script setup>
+import { storeToRefs } from "pinia"
+import { useSettingsStore } from "../stores/settings"
+
+const settings = useSettingsStore()
+const { websites } = storeToRefs(settings)
+</script>
 
 <template>
     <div class="iframes-container">
-        <iframe
-            width="33.33%"
-            src="https://chat.openai.com/chat"
-            allow="clipboard-write"
-            frameborder="0"
-        ></iframe>
-        <iframe
-            width="33.33%"
-            src="https://bing.com/chat"
-            allow="clipboard-write"
-            frameborder="0"
-        ></iframe>
-        <iframe
-            width="33.33%"
-            src="https://bard.google.com"
-            allow="clipboard-write"
-            frameborder="0"
-        ></iframe>
+        <template v-for="website in websites">
+            <iframe
+                v-if="website.active"
+                :width="100 / websites.filter((x) => x.active).length + '%'"
+                :src="website.src"
+                allow="clipboard-write"
+                frameborder="0"
+            ></iframe>
+        </template>
     </div>
 </template>
 

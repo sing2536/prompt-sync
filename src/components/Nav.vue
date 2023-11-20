@@ -4,9 +4,11 @@ import { usePromptStore } from '../stores/prompt';
 import { useShareStore } from '../stores/share';
 import QueryModal from './QueryModal.vue';
 import { ref } from 'vue';
+import { useSettingsStore } from '../stores/settings';
 
 const prompt = usePromptStore()
 const shareStore = useShareStore()
+const settings = useSettingsStore()
 const queryModal = ref(null);
 
 chrome.runtime?.onMessage.addListener((msg) => {
@@ -50,6 +52,9 @@ chrome.runtime?.onMessage.addListener((msg) => {
         <a class="action" href="https://github.com/sing2536/prompt-sync" target="_blank" v-tooltip="'Github'">
           <Icon icon="mdi:github" />
         </a>
+        <div class="action" @click="settings.open()" v-tooltip="'Settings'">
+          <Icon icon="ic:round-settings" />
+        </div>
       </div>
       
     </div>
