@@ -33,9 +33,6 @@ const { websites } = storeToRefs(settings)
     justify-content: space-between;
     margin-bottom: 8px;
 }
-label {
-    // font-size: 12px;
-}
 
 .toggle {
     -webkit-appearance: none;

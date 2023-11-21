@@ -46,10 +46,10 @@ chrome.runtime?.onMessage.addListener((msg) => {
 
     <div class="end-container">
       <div class="prompt-actions">
-        <div class="action" @click="shareStore.open()" v-tooltip="'Share app'">
+        <div class="action mobile-hide" @click="shareStore.open()" v-tooltip="'Share app'">
           <Icon icon="ic:baseline-share" />
         </div>
-        <a class="action" href="https://github.com/sing2536/prompt-sync" target="_blank" v-tooltip="'Github'">
+        <a class="action mobile-hide" href="https://github.com/sing2536/prompt-sync" target="_blank" v-tooltip="'Github'">
           <Icon icon="mdi:github" />
         </a>
         <div class="action" @click="settings.open()" v-tooltip="'Settings'">
@@ -163,8 +163,8 @@ textarea {
   .nav-container{
     padding: 0 var(--gap-small);
   }
-  .end-container {
-    display: none;
+  .mobile-hide {
+    display: none !important;
   }
 }
 </style>
