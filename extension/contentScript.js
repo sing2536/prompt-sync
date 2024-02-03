@@ -1,6 +1,7 @@
 const isBard = (() => location.host == "bard.google.com")()
 const isChatGPT = (() => location.host == "chat.openai.com")()
 const isBing = (() => location.host == "www.bing.com")()
+const isClaude = (() => location.host == "claude.ai")()
 
 function query(data) {
     if (isChatGPT) {
@@ -30,6 +31,21 @@ function query(data) {
         input.dispatchEvent(new Event("change"))
         setTimeout(() => {
             send.click()
+        }, 500)
+    }
+
+    if (isClaude) {
+        const input = document.querySelector('[class*="ProseMirror"] p')
+        const newChat = document.querySelector('[data-value="new chat"]')
+        const send = document.querySelector('button[aria-label="Send Message"]')
+
+        input.innerText = data
+        setTimeout(() => {
+            if (newChat) {
+                newChat.click()
+            } else {
+                send.click()
+            }
         }, 500)
     }
 }

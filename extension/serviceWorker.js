@@ -3,7 +3,7 @@ chrome.action.onClicked.addListener(() =>
 )
 
 chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: [1, 2],
+    removeRuleIds: [1, 2, 3],
     addRules: [
         {
             id: 1,
@@ -46,6 +46,21 @@ chrome.declarativeNetRequest.updateDynamicRules({
             condition: {
                 urlFilter: "chat.openai.com",
                 resourceTypes: ["sub_frame"],
+                initiatorDomains: [chrome.runtime.id],
+            },
+        },
+        {
+            id: 3,
+            priority: 1,
+            action: {
+                type: "modifyHeaders",
+                responseHeaders: [
+                    { header: "X-Frame-Options", operation: "remove" },
+                ],
+            },
+            condition: {
+                urlFilter: "claude.ai",
+                // resourceTypes: ["sub_frame", "main_frame"],
                 initiatorDomains: [chrome.runtime.id],
             },
         },

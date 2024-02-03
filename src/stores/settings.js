@@ -19,6 +19,11 @@ export const useSettingsStore = defineStore("settings", () => {
             active: true,
             src: "https://bard.google.com",
         },
+        // {
+        //     name: "Claude AI",
+        //     active: false,
+        //     src: "https://claude.ai",
+        // },
     ])
 
     function open() {
