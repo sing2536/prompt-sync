@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build --watch",
-        "zip": "vite build && npm-build-zip --source=extension/ --destination=dist/"
+        "zip": "vite build && npm-build-zip --source=extension/ --destination=dist/ --name_only=true --name=extension"
     },
     "dependencies": {
         "pinia": "^2.0.36",

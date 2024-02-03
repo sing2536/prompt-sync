@@ -29,4 +29,4 @@ jobs:
                   client_secret: ${{ secrets.SECRET }}
                   refresh_token: ${{ secrets.TOKEN }}
                   extension_id: ${{ secrets.EXTENSION_ID }}
-                  zip_file: "./dist/prompt-sync_0.0.0.zip"
+                  zip_file: "./dist/extension.zip"
