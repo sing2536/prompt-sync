@@ -104,7 +104,7 @@ if (isBing) {
             for (let i of document.querySelectorAll(
                 'nav[aria-label="Search Filter"] a'
             )) {
-                if (i.innerText == "CHAT") {
+                if (i.innerText == "COPILOT") {
                     return i
                 }
             }
