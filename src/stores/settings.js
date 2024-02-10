@@ -15,9 +15,9 @@ export const useSettingsStore = defineStore("settings", () => {
             src: "https://bing.com/chat",
         },
         {
-            name: "Google Bard",
+            name: "Google Gemini",
             active: true,
-            src: "https://bard.google.com",
+            src: "https://Gemini.google.com",
         },
         // {
         //     name: "Claude AI",

@@ -10,14 +10,14 @@
     "permissions": ["declarativeNetRequestWithHostAccess"],
     "host_permissions": [
         "https://chat.openai.com/*",
-        "https://bard.google.com/*",
+        "https://gemini.google.com/*",
         "https://claude.ai/*"
     ],
     "content_scripts": [
         {
             "matches": [
                 "https://chat.openai.com/*",
-                "https://bard.google.com/*",
+                "https://gemini.google.com/*",
                 "https://www.bing.com/*",
                 "https://claude.ai/*"
             ],

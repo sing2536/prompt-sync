@@ -1,4 +1,4 @@
-const isBard = (() => location.host == "bard.google.com")()
+const isGemini = (() => location.host == "gemini.google.com")()
 const isChatGPT = (() => location.host == "chat.openai.com")()
 const isBing = (() => location.host == "www.bing.com")()
 const isClaude = (() => location.host == "claude.ai")()
@@ -11,13 +11,13 @@ function query(data) {
             .nextElementSibling.click()
     }
 
-    if (isBard) {
+    if (isGemini) {
         const bard = document.querySelector(
-            '[aria-label="Input for prompt text"] p'
+            '[aria-label="Input for prompt text"]'
         )
-        bard.innerText = data
+        bard.innerHTML = formatGeminiInput(data)
         setTimeout(
-            () => document.querySelector('[mattooltip="Submit"]').click(),
+            () => document.querySelector('[aria-label="Send message"]').click(),
             500
         )
     }
@@ -50,10 +50,19 @@ function query(data) {
     }
 }
 
+function formatGeminiInput(input) {
+    const lines = input.split("\n")
+    return lines
+        .map((line) => {
+            return "<p>" + line + "</p>"
+        })
+        .join("")
+}
+
 window.addEventListener(
     "load",
     async () => {
-        if (isBard) {
+        if (isGemini) {
             while (
                 document.querySelector(
                     '[aria-label="Input for prompt text"]'

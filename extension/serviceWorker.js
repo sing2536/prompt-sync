@@ -22,7 +22,7 @@ chrome.declarativeNetRequest.updateDynamicRules({
                 ],
             },
             condition: {
-                urlFilter: "bard.google.com",
+                urlFilter: "gemini.google.com",
                 resourceTypes: ["sub_frame"],
                 initiatorDomains: [chrome.runtime.id],
             },
