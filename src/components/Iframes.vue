@@ -13,7 +13,6 @@ const { websites } = storeToRefs(settings)
                 v-if="website.active"
                 :width="100 / websites.filter((x) => x.active).length + '%'"
                 :src="website.src"
-                allow="clipboard-write"
                 frameborder="0"
             ></iframe>
         </template>
