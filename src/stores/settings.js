@@ -12,7 +12,7 @@ export const useSettingsStore = defineStore("settings", () => {
         {
             name: "Bing Chat",
             active: true,
-            src: "https://bing.com/chat",
+            src: "https://www.bing.com/chat",
         },
         {
             name: "Google Gemini",

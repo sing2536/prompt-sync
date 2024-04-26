@@ -3,7 +3,7 @@ chrome.action.onClicked.addListener(() =>
 )
 
 chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: [1, 2, 3],
+    removeRuleIds: [1, 2, 3, 4],
     addRules: [
         {
             id: 1,
@@ -55,12 +55,30 @@ chrome.declarativeNetRequest.updateDynamicRules({
             action: {
                 type: "modifyHeaders",
                 responseHeaders: [
-                    { header: "X-Frame-Options", operation: "remove" },
+                    { header: "Content-Security-Policy", operation: "remove" },
                 ],
             },
             condition: {
                 urlFilter: "claude.ai",
-                // resourceTypes: ["sub_frame", "main_frame"],
+                resourceTypes: ["sub_frame"],
+                initiatorDomains: [chrome.runtime.id],
+            },
+        },
+        {
+            id: 4,
+            priority: 1,
+            action: {
+                type: "modifyHeaders",
+                responseHeaders: [
+                    {
+                        header: "Content-Security-Policy",
+                        operation: "remove",
+                    },
+                ],
+            },
+            condition: {
+                urlFilter: "www.bing.com",
+                resourceTypes: ["sub_frame"],
                 initiatorDomains: [chrome.runtime.id],
             },
         },

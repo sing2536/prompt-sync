@@ -11,7 +11,8 @@
     "host_permissions": [
         "https://chat.openai.com/*",
         "https://gemini.google.com/*",
-        "https://claude.ai/*"
+        "https://claude.ai/*",
+        "https://www.bing.com/*"
     ],
     "content_scripts": [
         {
