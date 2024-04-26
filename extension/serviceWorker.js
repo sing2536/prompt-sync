@@ -3,7 +3,7 @@ chrome.action.onClicked.addListener(() =>
 )
 
 chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: [1, 2, 3, 4],
+    removeRuleIds: [1, 2, 3, 4, 5],
     addRules: [
         {
             id: 1,
@@ -56,6 +56,7 @@ chrome.declarativeNetRequest.updateDynamicRules({
                 type: "modifyHeaders",
                 responseHeaders: [
                     { header: "Content-Security-Policy", operation: "remove" },
+                    { header: "X-Frame-Options", operation: "remove" },
                 ],
             },
             condition: {
@@ -78,6 +79,25 @@ chrome.declarativeNetRequest.updateDynamicRules({
             },
             condition: {
                 urlFilter: "www.bing.com",
+                resourceTypes: ["sub_frame"],
+                initiatorDomains: [chrome.runtime.id],
+            },
+        },
+        {
+            id: 5,
+            priority: 1,
+            action: {
+                type: "modifyHeaders",
+                responseHeaders: [
+                    {
+                        header: "Content-Security-Policy",
+                        operation: "remove",
+                    },
+                    { header: "X-Frame-Options", operation: "remove" },
+                ],
+            },
+            condition: {
+                urlFilter: "www.perplexity.ai",
                 resourceTypes: ["sub_frame"],
                 initiatorDomains: [chrome.runtime.id],
             },

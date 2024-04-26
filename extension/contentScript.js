@@ -2,8 +2,16 @@ const isGemini = (() => location.host == "gemini.google.com")()
 const isChatGPT = (() => location.host == "chat.openai.com")()
 const isBing = (() => location.host == "www.bing.com")()
 const isClaude = (() => location.host == "claude.ai")()
+const isPerplexity = (() => location.host == "www.perplexity.ai")()
 
 function query(data) {
+    if (isPerplexity) {
+        setReactValue(document.querySelector("textarea"), data)
+        setTimeout(() => {
+            document.querySelector('button[aria-label="Submit"]').click()
+        }, 300)
+    }
+
     if (isChatGPT) {
         setReactValue(document.querySelector('[id="prompt-textarea"]'), data)
         document

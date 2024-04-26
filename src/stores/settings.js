@@ -19,6 +19,11 @@ export const useSettingsStore = defineStore("settings", () => {
             active: true,
             src: "https://Gemini.google.com",
         },
+        {
+            name: "Perplexity",
+            active: true,
+            src: "https://www.perplexity.ai/",
+        },
         // {
         //     name: "Claude AI",
         //     active: false,
