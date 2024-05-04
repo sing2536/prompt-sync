@@ -1,8 +1,10 @@
 const isGemini = (() => location.host == "gemini.google.com")()
-const isChatGPT = (() => location.host == "chat.openai.com")()
+const isChatGPT = (() => location.host == "chatgpt.com")()
 const isBing = (() => location.host == "www.bing.com")()
 const isClaude = (() => location.host == "claude.ai")()
 const isPerplexity = (() => location.host == "www.perplexity.ai")()
+
+console.log(12345)
 
 function query(data) {
     if (isPerplexity) {
@@ -10,9 +12,13 @@ function query(data) {
         setTimeout(() => {
             document.querySelector('button[aria-label="Submit"]').click()
         }, 300)
+        setTimeout(() => {
+            document.querySelector('button[data-testid="close-modal"]').click()
+        }, 6000)
     }
 
     if (isChatGPT) {
+        console.log("ran")
         setReactValue(document.querySelector('[id="prompt-textarea"]'), data)
         document
             .querySelector('[id="prompt-textarea"]')
@@ -21,7 +27,7 @@ function query(data) {
 
     if (isGemini) {
         const bard = document.querySelector(
-            '[aria-label="Input for prompt text"]'
+            '[aria-label="Enter a prompt here"]'
         )
         bard.innerHTML = formatGeminiInput(data)
         setTimeout(

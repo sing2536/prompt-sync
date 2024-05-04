@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "PromptSync",
-    "version": "1.45",
+    "version": "1.46",
     "description": "Ask ChatGPT, Bard AI, Perplexity, and Bing Chat with one single prompt!",
     "background": {
         "service_worker": "serviceWorker.js"
@@ -13,12 +13,13 @@
         "https://gemini.google.com/*",
         "https://claude.ai/*",
         "https://www.bing.com/*",
-        "https://www.perplexity.ai/*"
+        "https://www.perplexity.ai/*",
+        "https://chatgpt.com/*"
     ],
     "content_scripts": [
         {
             "matches": [
-                "https://chat.openai.com/*",
+                "https://chatgtp.com/*",
                 "https://gemini.google.com/*",
                 "https://www.bing.com/*",
                 "https://claude.ai/*",

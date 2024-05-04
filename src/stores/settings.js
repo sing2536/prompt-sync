@@ -7,7 +7,7 @@ export const useSettingsStore = defineStore("settings", () => {
         {
             name: "OpenAI ChatGPT",
             active: true,
-            src: "https://chat.openai.com/chat",
+            src: "https://chatgpt.com",
         },
         {
             name: "Bing Chat",

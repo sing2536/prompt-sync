@@ -3,7 +3,7 @@ chrome.action.onClicked.addListener(() =>
 )
 
 chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: [1, 2, 3, 4, 5],
+    removeRuleIds: [1, 2, 3, 4, 5, 6],
     addRules: [
         {
             id: 1,
@@ -41,6 +41,11 @@ chrome.declarativeNetRequest.updateDynamicRules({
                 ],
                 responseHeaders: [
                     { header: "Content-Security-Policy", operation: "remove" },
+                    {
+                        header: "Access-Control-Allow-Origin",
+                        operation: "set",
+                        value: "*",
+                    },
                 ],
             },
             condition: {
@@ -98,6 +103,26 @@ chrome.declarativeNetRequest.updateDynamicRules({
             },
             condition: {
                 urlFilter: "www.perplexity.ai",
+                resourceTypes: ["sub_frame"],
+                initiatorDomains: [chrome.runtime.id],
+            },
+        },
+        {
+            id: 6,
+            priority: 1,
+            action: {
+                type: "modifyHeaders",
+                responseHeaders: [
+                    { header: "Content-Security-Policy", operation: "remove" },
+                    {
+                        header: "Access-Control-Allow-Origin",
+                        operation: "set",
+                        value: "*",
+                    },
+                ],
+            },
+            condition: {
+                urlFilter: "chatgpt.com",
                 resourceTypes: ["sub_frame"],
                 initiatorDomains: [chrome.runtime.id],
             },
