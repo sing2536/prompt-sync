@@ -4,8 +4,6 @@ const isBing = (() => location.host == "www.bing.com")()
 const isClaude = (() => location.host == "claude.ai")()
 const isPerplexity = (() => location.host == "www.perplexity.ai")()
 
-console.log(12345)
-
 function query(data) {
     if (isPerplexity) {
         setReactValue(document.querySelector("textarea"), data)
