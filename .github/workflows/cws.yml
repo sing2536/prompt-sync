@@ -2,6 +2,7 @@ name: Publish Chrome extension to Chrome Web Store
 
 on:
     pull_request:
+        types: [closed]
         branches: ["master"]
 
 jobs:
