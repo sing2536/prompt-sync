@@ -4,8 +4,6 @@ const isBing = (() => location.host == "www.bing.com")()
 const isClaude = (() => location.host == "claude.ai")()
 const isPerplexity = (() => location.host == "www.perplexity.ai")()
 
-console.log(12345)
-
 function query(data) {
     if (isPerplexity) {
         setReactValue(document.querySelector("textarea"), data)
@@ -117,37 +115,4 @@ function setReactValue(element, value) {
 
 function focusPrompt() {
     chrome.runtime.sendMessage("", { action: "focusPrompt" })
-}
-
-if (isBing) {
-    //bing randomly navigates away from chat to search sometimes, this helps go back to chat
-    const menuObserverHandler = () => {
-        const chatButton = (() => {
-            for (let i of document.querySelectorAll(
-                'nav[aria-label="Search Filter"] a'
-            )) {
-                if (i.innerText == "COPILOT") {
-                    return i
-                }
-            }
-
-            return null
-        })()
-
-        if (chatButton) {
-            if (chatButton.ariaCurrent == "false") {
-                chatButton.click()
-            }
-        }
-    }
-
-    const menuObserver = new MutationObserver(menuObserverHandler)
-
-    menuObserver.observe(
-        document.querySelector('nav[aria-label="Search Filter"]'),
-        {
-            attributes: true,
-            subtree: true,
-        }
-    )
 }

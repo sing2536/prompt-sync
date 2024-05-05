@@ -3,7 +3,7 @@ chrome.action.onClicked.addListener(() =>
 )
 
 chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: [1, 2, 3, 4, 5, 6],
+    removeRuleIds: [1, 2, 3, 4, 5],
     addRules: [
         {
             id: 1,
