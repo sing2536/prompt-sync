@@ -49,7 +49,7 @@ chrome.declarativeNetRequest.updateDynamicRules({
                 ],
             },
             condition: {
-                urlFilter: "chat.openai.com",
+                urlFilter: "chatgpt.com",
                 resourceTypes: ["sub_frame"],
                 initiatorDomains: [chrome.runtime.id],
             },
@@ -103,26 +103,6 @@ chrome.declarativeNetRequest.updateDynamicRules({
             },
             condition: {
                 urlFilter: "www.perplexity.ai",
-                resourceTypes: ["sub_frame"],
-                initiatorDomains: [chrome.runtime.id],
-            },
-        },
-        {
-            id: 6,
-            priority: 1,
-            action: {
-                type: "modifyHeaders",
-                responseHeaders: [
-                    { header: "Content-Security-Policy", operation: "remove" },
-                    {
-                        header: "Access-Control-Allow-Origin",
-                        operation: "set",
-                        value: "*",
-                    },
-                ],
-            },
-            condition: {
-                urlFilter: "chatgpt.com",
                 resourceTypes: ["sub_frame"],
                 initiatorDomains: [chrome.runtime.id],
             },
