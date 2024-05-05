@@ -78,9 +78,8 @@ window.addEventListener(
     async () => {
         if (isGemini) {
             while (
-                document.querySelector(
-                    '[aria-label="Input for prompt text"]'
-                ) === null
+                document.querySelector('[aria-label="Enter a prompt here"]') ===
+                null
             ) {
                 await new Promise((resolve) => requestAnimationFrame(resolve))
             }
