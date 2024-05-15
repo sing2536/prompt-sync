@@ -16,11 +16,8 @@ function query(data) {
     }
 
     if (isChatGPT) {
-        console.log("ran")
         setReactValue(document.querySelector('[id="prompt-textarea"]'), data)
-        document
-            .querySelector('[id="prompt-textarea"]')
-            .nextElementSibling.click()
+        document.querySelectorAll("form button")[1]?.click()
     }
 
     if (isGemini) {
