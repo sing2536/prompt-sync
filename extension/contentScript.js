@@ -138,11 +138,17 @@ if (isBing) {
 
     const menuObserver = new MutationObserver(menuObserverHandler)
 
-    menuObserver.observe(
-        document.querySelector('nav[aria-label="Search Filter"]'),
-        {
-            attributes: true,
-            subtree: true,
+    const waitForElement = setInterval(() => {
+        const element = document.querySelector(
+            'nav[aria-label="Search Filter"]'
+        )
+
+        if (element) {
+            clearInterval(waitForElement)
+            menuObserver.observe(element, {
+                attributes: true,
+                subtree: true,
+            })
         }
-    )
+    }, 1000)
 }
