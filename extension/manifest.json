@@ -7,7 +7,7 @@
         "service_worker": "serviceWorker.js"
     },
     "action": {},
-    "permissions": ["declarativeNetRequestWithHostAccess"],
+    "permissions": ["declarativeNetRequestWithHostAccess", "storage"],
     "host_permissions": [
         "https://chat.openai.com/*",
         "https://gemini.google.com/*",

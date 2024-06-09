@@ -1,4 +1,7 @@
-input, textarea, .radio-container, select {
+input,
+textarea,
+.radio-container,
+select {
     caret-color: var(--color-primary);
     font-family: inherit;
     padding: var(--gap-tiny);
@@ -6,14 +9,15 @@ input, textarea, .radio-container, select {
     background-color: var(--color-shade);
     font-size: inherit;
     border: none;
-    border-radius: var(--radius-normal);
+    border-radius: var(--radius-small);
     outline-color: var(--color-primary);
     border: solid 1px var(--color-shade2);
     font-weight: 500;
     width: 100%;
     outline: none;
     line-height: inherit;
-    
+    resize: vertical;
+
     &:focus {
         border-color: var(--color-primary);
     }
