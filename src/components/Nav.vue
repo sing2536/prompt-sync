@@ -5,10 +5,12 @@ import { useShareStore } from '../stores/share';
 import QueryModal from './QueryModal.vue';
 import { ref } from 'vue';
 import { useSettingsStore } from '../stores/settings';
+import { usePromptLibraryStore } from '../stores/promptLibrary';
 
 const prompt = usePromptStore()
 const shareStore = useShareStore()
 const settings = useSettingsStore()
+const promptLibrary = usePromptLibraryStore()
 const queryModal = ref(null);
 
 chrome.runtime?.onMessage.addListener((msg) => {
@@ -26,6 +28,13 @@ chrome.runtime?.onMessage.addListener((msg) => {
     <div class="logo">PromptSync</div>
 
     <div class="center-container">
+
+      <div class="prompt-actions">
+        <div class="action" @click="promptLibrary.open()" v-tooltip="'Prompt Library'">
+          <Icon icon="mdi:message-draw"/>
+          <div class="new-tag">new</div>
+        </div>
+      </div>
 
       <div class="prompt-container">
         <textarea v-model="prompt.query" id="mainQuery" @keypress.enter.exact="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you're logged in to all platforms first before using this extension.&#10CTRL+Space to reset chats.&#10Happy prompting!"></textarea>
@@ -59,7 +68,7 @@ chrome.runtime?.onMessage.addListener((msg) => {
       
     </div>
 
-    <QueryModal :active="expandQuery" ref="queryModal"/>
+    <QueryModal ref="queryModal"/>
   </div>
 </template>
 
@@ -107,6 +116,7 @@ chrome.runtime?.onMessage.addListener((msg) => {
 }
 
 .prompt-actions {
+  position: relative;
   display: flex;
   align-items: center;
   gap: var(--gap-small);
@@ -141,6 +151,19 @@ textarea {
   resize: none;
   padding: var(--gap-xtiny) var(--gap-tiny);
   padding-right: 30px;
+}
+
+.new-tag {
+  position: absolute;
+  top: 6px;
+  background: var(--color-primary);
+  color: var(--color-text);
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 4px;
+  
 }
 
 @media (max-width: 1200px) {

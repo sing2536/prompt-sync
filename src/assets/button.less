@@ -1,6 +1,7 @@
-button, .button {
+button,
+.button {
     // outline: none;
-    padding: var(--gap-tiny);
+    padding: var(--gap-tiny) var(--gap-small);
     border: unset;
     font-family: inherit;
     border-radius: var(--radius-normal);
@@ -9,86 +10,105 @@ button, .button {
     background: transparent;
     text-transform: capitalize;
     text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xtiny);
 
     &.fill {
-      width: 100%;
+        width: 100%;
     }
-  
+
     &.dense {
-      padding: var(--gap-xtiny);
+        padding: var(--gap-xtiny) var(--gap-tiny);
     }
-  
+
     &.raised {
-      color: var(--color-text);
-      background: var(--color-shade);
-  
-      &:is(.primary) {
-        background: var(--color-primary);
-      }
-  
-      &:hover {
-        background: var(--color-shade2);
-      }
-    }
-  
-    &:hover {
-      cursor: pointer;
-      background: var(--color-shade);
-    }
-  
-    &.primary {
-      color: white;
-  
-      &:not(.raised) {
-        color: var(--color-primary);
-  
-        &:hover {
-          background: var(--color-shade);
+        color: var(--color-text);
+        background: var(--color-shade);
+
+        &:is(.primary) {
+            background: var(--color-primary);
         }
-      }
-  
-      &:hover:is(.raised) {
-        background: var(--color-primary2);
-      }
-  
-      &:hover {
-        background: var(--color-primary);
-      }
+
+        &:hover {
+            background: var(--color-shade2);
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        background: var(--color-shade);
+    }
+
+    &.primary {
+        color: white;
+
+        &:not(.raised):not(.outline) {
+            color: var(--color-primary);
+
+            &:hover {
+                background: var(--color-shade);
+            }
+        }
+
+        &:hover:is(.raised) {
+            background: var(--color-primary2);
+        }
+
+        &:hover {
+            background: var(--color-primary);
+        }
+    }
+
+    &.outline {
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
+
+        &:hover {
+            background-color: var(--color-primary);
+            color: var(--color-text);
+        }
+
+        &.red {
+            border-color: var(--color-red);
+        }
     }
 
     &.red {
-      color: white;
-  
-      &:not(.raised) {
-        color: var(--color-red);
-  
-        &:hover {
-          color: white;
+        color: red;
+
+        &:not(.raised) {
+            color: red;
+
+            &:hover {
+                color: white;
+            }
         }
-      }
-  
-      &:hover:is(.raised) {
-        background: var(--color-red);
-      }
-  
-      &:hover {
-        background: var(--color-red);
-      }
+
+        &:hover:is(.raised) {
+            background: var(--color-red);
+        }
+
+        &:hover {
+            background: var(--color-red);
+        }
     }
 
     &.link {
-      padding-left: 0;
-      padding-right: 0;
+        padding-left: 0;
+        padding-right: 0;
 
-      &:hover {
-        background-color: unset;
-        color: var(--color-text) !important;
-      }
+        &:hover {
+            background-color: unset;
+            color: var(--color-text) !important;
+        }
     }
-  
-    &.disabled, &.disabled:hover {
-      color: var(--color-text2);
-      background: var(--color-shade) !important;
-      pointer-events: none;
+
+    &.disabled,
+    &.disabled:hover {
+        color: var(--color-text2);
+        background: var(--color-shade) !important;
+        pointer-events: none;
     }
-  }
+}
