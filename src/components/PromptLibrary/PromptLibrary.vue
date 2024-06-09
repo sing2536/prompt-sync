@@ -7,7 +7,11 @@ const promptLibrary = usePromptLibraryStore()
 </script>
 
 <template>
-    <Modal :modal-active="promptLibrary.active" @close="promptLibrary.close()">
+    <Modal
+        :modal-active="promptLibrary.active"
+        @close="promptLibrary.close()"
+        width="600px"
+    >
         <h2>Prompt Library (Beta)</h2>
         <div v-if="!promptLibrary.prompts.length" class="empty-state-container">
             <h3>You're just a few clicks away from efficiency</h3>
@@ -26,6 +30,7 @@ const promptLibrary = usePromptLibraryStore()
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 
     h3 {
         margin-bottom: var(--gap-xtiny);

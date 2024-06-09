@@ -61,7 +61,7 @@ export const usePromptLibraryStore = defineStore("promptLibrary", () => {
     async function loadPrompts() {
         const storage = await chrome.storage?.sync.get("prompts")
 
-        if (storage.prompts) {
+        if (storage?.prompts) {
             prompts.value = storage.prompts
         }
     }

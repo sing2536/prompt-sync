@@ -2,7 +2,7 @@
 import { Icon } from "@iconify/vue"
 import { ref } from "@vue/reactivity"
 
-const props = defineProps(["modalActive"])
+const props = defineProps(["modalActive", "width"])
 const showContent = ref(false)
 </script>
 
@@ -15,7 +15,12 @@ const showContent = ref(false)
             @mousedown="showContent = false"
         >
             <Transition name="modal" @leave="$emit('close')">
-                <div v-if="showContent" class="modal-wrapper" @mousedown.stop>
+                <div
+                    v-if="showContent"
+                    class="modal-wrapper"
+                    :style="{ width: width }"
+                    @mousedown.stop
+                >
                     <div class="modal-header-actions">
                         <icon
                             @click="showContent = false"
@@ -87,7 +92,7 @@ const showContent = ref(false)
     .modal-wrapper {
         margin: 0;
         height: 100vh;
-        width: 100vw;
+        width: 100vw !important;
         max-height: 100%;
     }
 }

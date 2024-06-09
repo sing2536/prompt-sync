@@ -9,11 +9,12 @@ const promptLibrary = usePromptLibraryStore()
     <Modal
         :modal-active="promptLibrary.editorActive"
         @close="promptLibrary.closeEditor()"
+        width="600px"
     >
         <h2>Prompt Editor</h2>
         <form>
             <label>Name</label>
-            <input type="text" v-model="promptLibrary.formName" />
+            <input type="text" v-model="promptLibrary.formName" v-focus />
             <label>Prompt</label>
             <textarea type="text" v-model="promptLibrary.formPrompt" />
         </form>
@@ -36,18 +37,13 @@ const promptLibrary = usePromptLibraryStore()
 form {
     display: flex;
     flex-direction: column;
-    min-width: 600px;
-
-    label {
-        margin-bottom: var(--gap-xtiny);
-    }
 
     input {
         margin-bottom: var(--gap-small);
     }
 
     textarea {
-        height: 200px;
+        height: 400px;
     }
 }
 

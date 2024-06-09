@@ -15,7 +15,7 @@ function selectPrompt(prompt) {
 
 <template>
     <div>
-        <p>Select a prompt to add to your conversation.</p>
+        <p>Select a prompt to add to your conversations.</p>
         <div class="add-button">
             <button
                 class="primary dense outline"
@@ -28,7 +28,7 @@ function selectPrompt(prompt) {
             <tr>
                 <th class="name">Name</th>
                 <th></th>
-                <th></th>
+                <!-- <th></th> -->
             </tr>
             <tr
                 class="options"
@@ -45,9 +45,9 @@ function selectPrompt(prompt) {
                 >
                     <Icon icon="lucide:edit" />
                 </td>
-                <td class="action" v-tooltip="'Reposition'">
+                <!-- <td class="action" v-tooltip="'Reposition'">
                     <Icon icon="ic:baseline-drag-indicator" />
-                </td>
+                </td> -->
             </tr>
         </table>
     </div>
@@ -59,11 +59,11 @@ function selectPrompt(prompt) {
 }
 table {
     border-collapse: collapse;
-    min-width: 500px;
 }
 th {
     text-align: left;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 td,

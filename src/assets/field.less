@@ -16,13 +16,24 @@ select {
     width: 100%;
     outline: none;
     line-height: inherit;
-    resize: vertical;
 
     &:focus {
         border-color: var(--color-primary);
     }
 
     &::placeholder {
-        color: var(--color-text2);
+        color: var(--color-text3);
     }
+}
+
+textarea {
+    resize: vertical;
+}
+
+form label {
+    margin-bottom: var(--gap-xtiny);
+    margin-left: var(--gap-xtiny);
+    color: var(--color-text2);
+    text-transform: uppercase;
+    font-size: 12px;
 }
