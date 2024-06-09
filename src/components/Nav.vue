@@ -67,7 +67,7 @@ chrome.runtime?.onMessage.addListener((msg) => {
       
     </div>
 
-    <QueryModal :active="expandQuery" ref="queryModal"/>
+    <QueryModal ref="queryModal"/>
   </div>
 </template>
 
