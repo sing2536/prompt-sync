@@ -17,7 +17,7 @@ const promptLibrary = usePromptLibraryStore()
             <h3>You're just a few clicks away from efficiency.</h3>
             <p>Create your first custom prompt and optimize your workflow.</p>
             <button class="primary raised" @click="promptLibrary.openEditor()">
-                Create your first prompt
+                Create Prompt
             </button>
         </div>
         <PromptLibraryList v-else />

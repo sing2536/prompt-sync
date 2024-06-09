@@ -6,6 +6,10 @@ import { usePromptStore } from "../../stores/prompt"
 const promptLibrary = usePromptLibraryStore()
 const promptStore = usePromptStore()
 
+function copyPrompt(prompt) {
+    navigator.clipboard.writeText(prompt)
+}
+
 function selectPrompt(prompt) {
     promptStore.ask(prompt)
 
@@ -28,7 +32,7 @@ function selectPrompt(prompt) {
             <tr>
                 <th class="name">Name</th>
                 <th></th>
-                <!-- <th></th> -->
+                <th></th>
             </tr>
             <tr
                 class="options"
@@ -37,6 +41,13 @@ function selectPrompt(prompt) {
             >
                 <td>
                     {{ prompt.name }}
+                </td>
+                <td
+                    class="action"
+                    @click.stop="copyPrompt(prompt.prompt)"
+                    v-tooltip="'Copy'"
+                >
+                    <Icon icon="solar:copy-bold" />
                 </td>
                 <td
                     class="action"
