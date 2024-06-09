@@ -31,7 +31,8 @@ chrome.runtime?.onMessage.addListener((msg) => {
 
       <div class="prompt-actions">
         <div class="action" @click="promptLibrary.open()" v-tooltip="'Prompt Library'">
-          <Icon icon="mdi:message-draw" />
+          <Icon icon="mdi:message-draw"/>
+          <div class="new-tag">new</div>
         </div>
       </div>
 
@@ -115,6 +116,7 @@ chrome.runtime?.onMessage.addListener((msg) => {
 }
 
 .prompt-actions {
+  position: relative;
   display: flex;
   align-items: center;
   gap: var(--gap-small);
@@ -149,6 +151,19 @@ textarea {
   resize: none;
   padding: var(--gap-xtiny) var(--gap-tiny);
   padding-right: 30px;
+}
+
+.new-tag {
+  position: absolute;
+  top: 6px;
+  background: var(--color-primary);
+  color: var(--color-text);
+  border-radius: 4px;
+  padding: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 4px;
+  
 }
 
 @media (max-width: 1200px) {
