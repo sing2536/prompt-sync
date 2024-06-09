@@ -12,9 +12,9 @@ const promptLibrary = usePromptLibraryStore()
         @close="promptLibrary.close()"
         width="600px"
     >
-        <h2>Prompt Library (Beta)</h2>
+        <h1>Prompt Library (Beta)</h1>
         <div v-if="!promptLibrary.prompts.length" class="empty-state-container">
-            <h3>You're just a few clicks away from efficiency.</h3>
+            <h2>You're just a few clicks away from efficiency.</h2>
             <p>Create your first custom prompt and optimize your workflow.</p>
             <button class="primary raised" @click="promptLibrary.openEditor()">
                 Create Prompt

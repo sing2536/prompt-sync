@@ -30,7 +30,7 @@ watch(
 <template>
     <Modal :modal-active="share.active" @close="share.close()">
         <div>
-            <h2>Thanks for sharing!</h2>
+            <h1>Thanks for sharing!</h1>
             <p>Link should already be copied to your clipboard.</p>
             <input id="shareLink" type="text" :value="share.link" readonly />
             <button

@@ -11,7 +11,7 @@ const promptLibrary = usePromptLibraryStore()
         @close="promptLibrary.closeEditor()"
         width="600px"
     >
-        <h2>Prompt Editor</h2>
+        <h1>Prompt Editor</h1>
         <form>
             <label>Name</label>
             <input type="text" v-model="promptLibrary.formName" v-focus />
