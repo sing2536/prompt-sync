@@ -2,15 +2,15 @@ import { ref } from "vue"
 import { defineStore } from "pinia"
 
 export const usePromptStore = defineStore("prompt", () => {
-    const query = ref()
+    const query = ref("")
 
-    function ask(e) {
-        if (!query.value) return
+    function ask(prompt) {
+        if (!prompt && !query.value) return
 
         chrome.tabs?.getCurrent((tab) => {
             chrome.tabs?.sendMessage(tab.id, {
                 action: "query",
-                data: query.value,
+                data: query.value || prompt,
             })
             query.value = ""
         })

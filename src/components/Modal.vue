@@ -1,30 +1,40 @@
 <script setup>
-import { Icon } from '@iconify/vue';
-import { ref } from '@vue/reactivity';
+import { Icon } from "@iconify/vue"
+import { ref } from "@vue/reactivity"
 
-const props = defineProps(['modalActive'])
+const props = defineProps(["modalActive", "width"])
 const showContent = ref(false)
 </script>
 
 <template>
     <Transition name="fade" @enter="showContent = true">
         <!-- we use mousedown so input drags doesn't cause modal to close -->
-        <div v-if="modalActive" class="modal-container" @mousedown="showContent = false">
+        <div
+            v-if="modalActive"
+            class="modal-container"
+            @mousedown="showContent = false"
+        >
             <Transition name="modal" @leave="$emit('close')">
-                <div v-if="showContent" class="modal-wrapper" @mousedown.stop>
-    
+                <div
+                    v-if="showContent"
+                    class="modal-wrapper"
+                    :style="{ width: width }"
+                    @mousedown.stop
+                >
                     <div class="modal-header-actions">
-                        <icon @click="showContent = false" icon="maki:cross"></icon>
+                        <icon
+                            @click="showContent = false"
+                            icon="maki:cross"
+                        ></icon>
                     </div>
-    
+
                     <div class="modal-content">
                         <slot />
                     </div>
-    
+
                     <div v-if="$slots.footer" class="modal-footer">
                         <slot name="footer" />
                     </div>
-    
                 </div>
             </Transition>
         </div>
@@ -42,7 +52,7 @@ const showContent = ref(false)
     justify-content: center;
     align-items: center;
     z-index: 10;
-    background-color: var(--mask-background)
+    background-color: var(--mask-background);
 }
 .modal-wrapper {
     display: flex;
@@ -67,7 +77,7 @@ const showContent = ref(false)
     }
 }
 .modal-content {
-    padding: var(--gap-medium);
+    padding: var(--gap-large);
     overflow: auto;
 }
 
@@ -82,23 +92,27 @@ const showContent = ref(false)
     .modal-wrapper {
         margin: 0;
         height: 100vh;
-        width: 100vw;
+        width: 100vw !important;
         max-height: 100%;
     }
 }
 
-.modal-enter-active, .modal-leave-active {
+.modal-enter-active,
+.modal-leave-active {
     transition: all 0.2s ease-in-out;
 }
-.modal-enter-from, .modal-leave-to {
+.modal-enter-from,
+.modal-leave-to {
     transform: scale(0.9);
     opacity: 0;
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
     transition: all 0.2s ease-in-out;
 }
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
     opacity: 0;
 }
 </style>
