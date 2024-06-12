@@ -8,10 +8,14 @@ const { websites } = storeToRefs(settings)
 </script>
 
 <template>
-    <Modal :modal-active="settings.active" @close="settings.close()">
+    <Modal
+        :modal-active="settings.active"
+        @close="settings.close()"
+        width="500px"
+    >
         <div>
-            <h2>Settings</h2>
-            <p>Chats enabled</p>
+            <h1>Settings</h1>
+            <label class="label">Chats enabled</label>
             <div class="checkboxContainer" v-for="website in websites">
                 <label :for="website.name">{{ website.name }}</label>
                 <input
@@ -31,7 +35,12 @@ const { websites } = storeToRefs(settings)
     gap: 30px;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 8px;
+    padding: var(--gap-tiny);
+    border-bottom: 1px solid var(--color-shade2);
+
+    &:hover {
+        background: var(--color-shade2);
+    }
 }
 
 .toggle {

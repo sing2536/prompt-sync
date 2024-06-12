@@ -116,39 +116,7 @@ function focusPrompt() {
 
 if (isBing) {
     //bing randomly navigates away from chat to search sometimes, this helps go back to chat
-    const menuObserverHandler = () => {
-        const chatButton = (() => {
-            for (let i of document.querySelectorAll(
-                'nav[aria-label="Search Filter"] a'
-            )) {
-                if (i.innerText == "COPILOT") {
-                    return i
-                }
-            }
-
-            return null
-        })()
-
-        if (chatButton) {
-            if (chatButton.ariaCurrent == "false") {
-                chatButton.click()
-            }
-        }
-    }
-
-    const menuObserver = new MutationObserver(menuObserverHandler)
-
-    const waitForElement = setInterval(() => {
-        const element = document.querySelector(
-            'nav[aria-label="Search Filter"]'
-        )
-
-        if (element) {
-            clearInterval(waitForElement)
-            menuObserver.observe(element, {
-                attributes: true,
-                subtree: true,
-            })
-        }
-    }, 1000)
+    setTimeout(() => {
+        document.querySelector('[id="b-scopeListItem-conv"] a')?.click()
+    }, 10000)
 }

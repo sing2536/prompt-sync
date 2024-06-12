@@ -66,8 +66,8 @@ const showContent = ref(false)
 }
 .modal-header-actions {
     position: absolute;
-    top: var(--gap-medium);
-    right: var(--gap-medium);
+    top: var(--gap-small);
+    right: var(--gap-small);
     font-size: x-large;
     z-index: 2;
 
@@ -77,7 +77,7 @@ const showContent = ref(false)
     }
 }
 .modal-content {
-    padding: var(--gap-large);
+    padding: var(--gap-xlarge);
     overflow: auto;
 }
 
@@ -90,6 +90,7 @@ const showContent = ref(false)
 
 @media (max-width: 800px) {
     .modal-wrapper {
+        border-radius: 0;
         margin: 0;
         height: 100vh;
         width: 100vw !important;

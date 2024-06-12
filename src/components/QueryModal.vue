@@ -1,9 +1,9 @@
 <script setup>
-import { ref } from 'vue';
-import Modal from './Modal.vue';
-import { usePromptStore } from '../stores/prompt';
-import { watch } from 'vue';
-import { nextTick } from 'vue';
+import { ref } from "vue"
+import Modal from "./Modal.vue"
+import { usePromptStore } from "../stores/prompt"
+import { watch } from "vue"
+import { nextTick } from "vue"
 
 const prompt = usePromptStore()
 const active = ref(false)
@@ -17,15 +17,15 @@ function send() {
     active.value = false
 }
 
-watch(active, async (v)=> {
+watch(active, async (v) => {
     if (v) {
         await nextTick()
-        document.querySelector('#enlargedQuery').focus()
+        document.querySelector("#enlargedQuery").focus()
     } else {
         //nextTick doesn't work here
         setTimeout(() => {
-            document.querySelector('#mainQuery').focus()
-        }, 300);
+            document.querySelector("#mainQuery").focus()
+        }, 300)
     }
 })
 
@@ -35,8 +35,12 @@ defineExpose({ open })
 <template>
     <Modal :modal-active="active" @close="active = false">
         <div class="modal-content">
-            <h2>Enlarged Prompt</h2>
-            <textarea id="enlargedQuery" v-model="prompt.query" @keydown.ctrl.enter="send()"></textarea>
+            <h1>Enlarged Prompt</h1>
+            <textarea
+                id="enlargedQuery"
+                v-model="prompt.query"
+                @keydown.ctrl.enter="send()"
+            ></textarea>
             <button class="raised primary fill" @click="send()">Send</button>
         </div>
     </Modal>
