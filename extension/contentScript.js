@@ -4,6 +4,10 @@ const isBing = (() => location.host == "www.bing.com")()
 const isClaude = (() => location.host == "claude.ai")()
 const isPerplexity = (() => location.host == "www.perplexity.ai")()
 
+const generalScript = document.createElement("script")
+generalScript.src = chrome.runtime.getURL("/is/general.js")
+document.head.appendChild(generalScript)
+
 function query(data) {
     if (isPerplexity) {
         setReactValue(document.querySelector("textarea"), data)
@@ -69,22 +73,6 @@ function formatGeminiInput(input) {
         })
         .join("")
 }
-
-window.addEventListener(
-    "load",
-    async () => {
-        if (isGemini) {
-            while (
-                document.querySelector('[aria-label="Enter a prompt here"]') ===
-                null
-            ) {
-                await new Promise((resolve) => requestAnimationFrame(resolve))
-            }
-            focusPrompt()
-        }
-    },
-    false
-)
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "/") focusPrompt()

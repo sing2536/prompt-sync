@@ -1,0 +1,1 @@
+HTMLElement.prototype.focus = () => {}
