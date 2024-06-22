@@ -29,6 +29,12 @@
             "js": ["contentScript.js", "src/querySelectorShadowDom.js"]
         }
     ],
+    "web_accessible_resources": [
+        {
+            "resources": ["/is/*"],
+            "matches": ["*://*/*"]
+        }
+    ],
     "icons": {
         "16": "src/icon.png",
         "48": "src/icon.png",

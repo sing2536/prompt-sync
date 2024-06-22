@@ -3,7 +3,7 @@ import { Icon } from '@iconify/vue';
 import { usePromptStore } from '../stores/prompt';
 import { useShareStore } from '../stores/share';
 import QueryModal from './QueryModal.vue';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useSettingsStore } from '../stores/settings';
 import { usePromptLibraryStore } from '../stores/promptLibrary';
 
@@ -12,6 +12,10 @@ const shareStore = useShareStore()
 const settings = useSettingsStore()
 const promptLibrary = usePromptLibraryStore()
 const queryModal = ref(null);
+
+onMounted(()=>{
+  document.querySelector('textarea').focus()
+})
 
 chrome.runtime?.onMessage.addListener((msg) => {
   switch (msg?.action) {
