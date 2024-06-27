@@ -67,7 +67,7 @@ const { websites } = storeToRefs(settings)
     z-index: 2;
     width: 18px;
     height: 18px;
-    background: #fff;
+    background: var(--color-text3);
     left: 2px;
     top: 2px;
     border-radius: 50%;

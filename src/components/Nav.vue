@@ -36,7 +36,7 @@ chrome.runtime?.onMessage.addListener((msg) => {
       <div class="prompt-actions">
         <div class="action" @click="promptLibrary.open()" v-tooltip="'Prompt Library'">
           <Icon icon="mdi:message-draw"/>
-          <div class="new-tag">new</div>
+          <div class="new-tag">NEW</div>
         </div>
       </div>
 
@@ -101,8 +101,8 @@ chrome.runtime?.onMessage.addListener((msg) => {
   align-items: center;
   justify-content: space-evenly;
   background: var(--color-background);
-  background-color: #4158D0;
-  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  background-color: var(--color-background2);
+  // background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
   gap: var(--gap-medium);
   padding: 0 var(--gap-large);
 }
@@ -160,14 +160,13 @@ textarea {
 .new-tag {
   position: absolute;
   top: 6px;
-  background: var(--color-primary);
+  background: var(--color-red);
   color: var(--color-text);
-  border-radius: 4px;
-  padding: 4px;
-  font-size: 10px;
-  font-weight: bold;
+  border-radius: 2px;
+  padding: 4px 2px;
+  font-size: 9px;
+  font-weight: 800;
   line-height: 4px;
-  
 }
 
 @media (max-width: 1200px) {
