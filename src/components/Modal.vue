@@ -66,8 +66,8 @@ const showContent = ref(false)
 }
 .modal-header-actions {
     position: absolute;
-    top: var(--gap-small);
-    right: var(--gap-small);
+    top: 10px;
+    right: 14px;
     font-size: x-large;
     z-index: 2;
 
@@ -77,7 +77,7 @@ const showContent = ref(false)
     }
 }
 .modal-content {
-    padding: var(--gap-xlarge);
+    padding: var(--gap-large);
     overflow: auto;
 }
 

@@ -2,8 +2,8 @@
 @import "button.less";
 
 :root {
-    --color-primary: #4db6ff;
-    --color-primary2: #4295d0;
+    --color-primary: white;
+    --color-primary2: #dedede;
     --color-background: #224567;
     --color-background2: #24272e;
     --color-text: #ffffff;
@@ -21,6 +21,7 @@
     --gap-xtiny: 6px;
     --radius-normal: 20px;
     --radius-small: 12px;
+    --radius-tiny: 8px;
     --nav-height: 76px;
 }
 
@@ -46,10 +47,15 @@ body {
 }
 
 h1,
+h2 {
+    letter-spacing: -0.5px;
+}
+
+h1,
 h2,
 h3 {
     margin-bottom: var(--gap-small);
-    font-weight: 800;
+    font-weight: 700;
 }
 
 p {
