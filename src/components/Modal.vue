@@ -73,7 +73,7 @@ const showContent = ref(false)
 
     :hover {
         cursor: pointer;
-        color: var(--color-primary);
+        color: var(--color-text2);
     }
 }
 .modal-content {

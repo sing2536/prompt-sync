@@ -56,7 +56,7 @@ const { websites } = storeToRefs(settings)
     outline: none;
     border: none;
     cursor: pointer;
-    background-color: var(--color-text2);
+    background-color: var(--color-shade);
     transition: background-color ease 0.3s;
 }
 
@@ -76,7 +76,7 @@ const { websites } = storeToRefs(settings)
     font-weight: bold;
     text-indent: -22px;
     word-spacing: 37px;
-    color: #fff;
+    color: var(--color-primary);
     text-shadow: -1px -1px rgba(0, 0, 0, 0.15);
     white-space: nowrap;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);

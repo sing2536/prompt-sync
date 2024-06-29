@@ -41,7 +41,7 @@ chrome.runtime?.onMessage.addListener((msg) => {
       </div>
 
       <div class="prompt-container">
-        <textarea v-model="prompt.query" id="mainQuery" @keypress.enter.exact="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you're logged in to all platforms first before using this extension.&#10CTRL+Space to reset chats.&#10Happy prompting!"></textarea>
+        <textarea v-model="prompt.query" id="mainQuery" @keypress.enter.exact="prompt.ask()" @keydown.ctrl.space="prompt.reset()" rows="3" placeholder="Make sure you login to each platform outside of PromptSync.&#10If a page is not loading, try loading it outside PromptSync first and then refresh this page. Happy prompting!"></textarea>
         <div class="enlarge-button" @click="queryModal.open()" v-tooltip="'Enlarge'">
           <Icon icon="akar-icons:enlarge" />
         </div>
