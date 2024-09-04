@@ -46,6 +46,7 @@ chrome.declarativeNetRequest.updateDynamicRules({
                         operation: "set",
                         value: "*",
                     },
+                    { header: "X-Frame-Options", operation: "remove" },
                 ],
             },
             condition: {
