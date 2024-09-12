@@ -1,8 +1,8 @@
-const isGemini = (() => location.host == "gemini.google.com")()
-const isChatGPT = (() => location.host == "chatgpt.com")()
-const isBing = (() => location.host == "www.bing.com")()
-const isClaude = (() => location.host == "claude.ai")()
-const isPerplexity = (() => location.host == "www.perplexity.ai")()
+const isGemini = location.host == "gemini.google.com"
+const isChatGPT = location.host == "chatgpt.com"
+const isBing = location.host == "www.bing.com"
+const isClaude = location.host == "claude.ai"
+const isPerplexity = location.host == "www.perplexity.ai"
 
 const generalScript = document.createElement("script")
 generalScript.src = chrome.runtime.getURL("/is/general.js")
@@ -20,15 +20,20 @@ function query(data) {
     }
 
     if (isChatGPT) {
-        setReactValue(document.querySelector('[id="prompt-textarea"]'), data)
-        document.querySelector('[data-testid="send-button"]')?.click()
+        const input = document.querySelector('[id="prompt-textarea"]')
+
+        input.innerHTML = formatInputWithParagraphTags(data)
+        setTimeout(() => {
+            document.querySelector('[data-testid="send-button"]')?.click()
+        }, 500)
     }
 
     if (isGemini) {
         const bard = document.querySelector(
             '[aria-label="Enter a prompt here"]'
         )
-        bard.innerHTML = formatGeminiInput(data)
+
+        bard.innerHTML = formatInputWithParagraphTags(data)
         setTimeout(
             () => document.querySelector('[aria-label="Send message"]').click(),
             500
@@ -40,6 +45,7 @@ function query(data) {
         const send = querySelectorShadowDom.querySelectorDeep(
             'button[description="Submit"]'
         )
+
         input.value = data
         input.dispatchEvent(new Event("change"))
         setTimeout(() => {
@@ -63,8 +69,9 @@ function query(data) {
     }
 }
 
-function formatGeminiInput(input) {
+function formatInputWithParagraphTags(input) {
     const lines = input.split("\n")
+
     return lines
         .map((line) => {
             return "<p>" + line + "</p>"

@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "PromptSync",
-    "version": "2.7",
+    "version": "2.8",
     "description": "Ask ChatGPT, Bard AI, and Bing Chat with one single prompt!",
     "background": {
         "service_worker": "serviceWorker.js"
