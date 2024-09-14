@@ -79,10 +79,6 @@ function formatInputWithParagraphTags(input) {
         .join("")
 }
 
-document.addEventListener("keydown", (event) => {
-    if (event.key === "/") focusPrompt()
-})
-
 chrome.runtime.onMessage.addListener((msg) => {
     switch (msg?.action) {
         case "query":
