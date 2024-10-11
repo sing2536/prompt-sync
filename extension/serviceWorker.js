@@ -84,7 +84,7 @@ chrome.declarativeNetRequest.updateDynamicRules({
                 ],
             },
             condition: {
-                urlFilter: "www.bing.com",
+                urlFilter: "copilot.microsoft.com",
                 resourceTypes: ["sub_frame"],
                 initiatorDomains: [chrome.runtime.id],
             },
