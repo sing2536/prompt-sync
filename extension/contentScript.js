@@ -1,6 +1,6 @@
 const isGemini = location.host == "gemini.google.com"
 const isChatGPT = location.host == "chatgpt.com"
-const isBing = location.host == "www.bing.com"
+const isBing = location.host == "copilot.microsoft.com"
 const isClaude = location.host == "claude.ai"
 const isPerplexity = location.host == "www.perplexity.ai"
 
@@ -41,16 +41,17 @@ function query(data) {
     }
 
     if (isBing) {
-        const input = querySelectorShadowDom.querySelectorDeep("#searchbox")
-        const send = querySelectorShadowDom.querySelectorDeep(
-            'button[description="Submit"]'
-        )
+        const input = querySelectorShadowDom.querySelectorDeep("#userInput")
 
-        input.value = data
-        input.dispatchEvent(new Event("change"))
+        input.click()
+        setReactValue(input, data)
         setTimeout(() => {
+            const send = querySelectorShadowDom.querySelectorDeep(
+                'button[title="Submit message"]'
+            )
+
             send.click()
-        }, 500)
+        }, 1000)
     }
 
     if (isClaude) {
